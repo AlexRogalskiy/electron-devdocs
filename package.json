@@ -1,0 +1,97 @@
+{
+  "private": true,
+  "name": "devdocs-desktop",
+  "version": "0.0.0-this-does-not-matter",
+  "description": "Desktop client for devdocs.io",
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com",
+    "url": "https://github.com/egoist"
+  },
+  "license": "MIT",
+  "main": "app/index.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "test": "npm run lint",
+    "lint": "xo",
+    "app": "set DEBUG=devdocs-desktop:* && electron app/index.js",
+    "pack": "build --dir",
+    "dist": "build",
+    "release": "build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egoist/devdocs-desktop.git"
+  },
+  "keywords": [
+    "devdocs",
+    "app",
+    "electron"
+  ],
+  "bugs": {
+    "url": "https://github.com/egoist/devdocs-desktop/issues"
+  },
+  "homepage": "https://github.com/egoist/devdocs-desktop#readme",
+  "devDependencies": {
+    "devtron": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "electron": "^8.1.0",
+    "electron-builder": "^22.4.0",
+    "electron-devtools-installer": "^2.2.4",
+    "electron-notarize": "^0.2.1",
+    "eslint-config-rem": "^4.0.0",
+    "minimist": "^1.2.0",
+    "xo": "^0.27.2"
+  },
+  "xo": {
+    "extends": "rem",
+    "envs": [
+      "browser"
+    ],
+    "rules": {
+      "guard-for-in": 0,
+      "max-params": [
+        "error",
+        5
+      ],
+      "import/order": "off"
+    }
+  },
+  "build": {
+    "appId": "sh.egoist.devdocs",
+    "productName": "DevDocs",
+    "compression": "maximum",
+    "asar": true,
+    "dmg": {
+      "sign": false
+    },
+    "afterSign": "scripts/notarize.js",
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false
+    },
+    "linux": {
+      "synopsis": "DevDocs desktop app",
+      "category": "Development",
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.xz"
+      ]
+    }
+  },
+  "dependencies": {}
+}

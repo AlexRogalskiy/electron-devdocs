@@ -1,0 +1,42 @@
+{
+  "name": "DevDocs",
+  "productName": "DevDocs",
+  "version": "0.7.1",
+  "description": "Desktop client for devdocs.io",
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com",
+    "url": "https://github.com/egoist"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egoist/devdocs-desktop.git"
+  },
+  "keywords": [
+    "devdocs",
+    "app",
+    "electron",
+    "desktop"
+  ],
+  "bugs": {
+    "url": "https://github.com/egoist/devdocs-desktop/issues"
+  },
+  "homepage": "https://github.com/egoist/devdocs-desktop#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "debug": "^3.1.0",
+    "electron-context-menu": "^0.16.0",
+    "electron-debug": "^3.0.1",
+    "electron-is-dev": "^1.1.0",
+    "electron-log": "^4.0.7",
+    "electron-store": "^5.1.1",
+    "electron-updater": "^4.2.4",
+    "mkdirp": "^1.0.3",
+    "semver-compare": "^1.0.0"
+  }
+}
